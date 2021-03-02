@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.restaurant"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.constraint_layout
+    implementation deps.app_compat
+    implementation deps.koin.core
+    implementation deps.rxjava2
+
+    implementation deps.rx_android
+    implementation deps.lifecycle.viewmodel_ktx
+    implementation deps.koin.viewmodel
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.adapter
+    implementation deps.okhttp_logging_interceptor
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    kapt deps.room.compiler
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+    implementation deps.room.rxjava2
+    implementation deps.picasso
+    implementation deps.lifecycle.viewmodel_ktx
+
+    implementation deps.cardview
+
+}

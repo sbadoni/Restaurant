@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/item_FoodImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_FoodName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_FoodImage"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        tools:text= "Bhindi Fry"/>
+
+    <RatingBar
+        android:id="@+id/item_FoodRating"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginStart="22dp"
+        android:numStars="5"
+        android:isIndicator="true"
+        android:clickable="false"
+        android:progressTint="@android:color/holo_orange_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_FoodImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_FoodPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toStartOf="@id/item_FoodRating"
+        app:layout_constraintTop_toBottomOf="@+id/item_FoodRating"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        tools:text= "@string/rupee"/>
+
+    <com.example.restaurant.util.ItemCounter
+        android:id="@+id/item_FoodCounter"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/item_FoodRating"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

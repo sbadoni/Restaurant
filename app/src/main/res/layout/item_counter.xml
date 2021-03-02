@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:gravity="center_vertical"
+    tools:orientation="horizontal"
+    tools:parentTag="android.widget.LinearLayout">
+    <Button
+        android:id="@+id/item_decrease"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/button_bg_red"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/item_currentlySelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:text="0"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/item_increase"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/button_bg_round"
+        android:text="+" />
+
+</merge>

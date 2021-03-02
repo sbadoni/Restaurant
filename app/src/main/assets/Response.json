@@ -1,0 +1,349 @@
+{
+  "status": 0,
+  "cuisines": [
+    {
+      "cuisineId": "1",
+      "cuisineName": "North Indian",
+      "cuisineImage": "northindia"
+    },
+    {
+      "cuisineId": "2",
+      "cuisineName": "Chinese",
+      "cuisineImage": "china"
+    },
+
+    {
+      "cuisineId": "3",
+      "cuisineName": "Mexican",
+      "cuisineImage": "mexican"
+    },
+    {
+      "cuisineId": "4",
+      "cuisineName": "South Indian",
+      "cuisineImage": "southindia"
+    },
+    {
+      "cuisineId": "5",
+      "cuisineName": "Italian",
+      "cuisineImage": "italy"
+    }
+    ],
+  "bestthree": [
+    {
+      "cuisineId": "1",
+      "musttry": [
+        {
+          "foodId": 1,
+          "foodName": "Thali",
+          "foodImageId": "thali",
+          "foodPrice": "101",
+          "foodrating":"4"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Kadali Paneer",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "102",
+          "foodrating":"4"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Chole Bhature",
+          "foodImageId": "cholebhature",
+          "foodPrice": "103",
+          "foodrating":"4"
+        }
+      ]
+    },
+    {
+      "cuisineId": "2",
+      "musttry": [
+        {
+          "foodId": 1,
+          "foodName": "BhindiFry",
+          "foodImageId": "thali",
+          "foodPrice": "201",
+          "foodrating":"5"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Chicken",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "202",
+          "foodrating":"3"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Korma",
+          "foodImageId": "cholebhature",
+          "foodPrice": "203",
+          "foodrating":"4"
+        }
+      ]
+    },
+    {
+      "cuisineId": "3",
+      "musttry": [
+        {
+          "foodId": 1,
+          "foodName": "French fries",
+          "foodImageId": "thali",
+          "foodPrice": "301",
+          "foodrating":"2"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Mashroom",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "302",
+          "foodrating":"1"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Roti",
+          "foodImageId": "cholebhature",
+          "foodPrice": "303",
+          "foodrating":"4"
+        }
+      ]
+    },
+    {
+      "cuisineId": "4",
+      "musttry": [
+        {
+          "foodId": 1,
+          "foodName": "Pani Puri",
+          "foodImageId": "cholebhature",
+          "foodPrice": "401",
+          "foodrating":"4"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Chaat",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "402",
+          "foodrating":"3.5"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Momo",
+          "foodImageId": "thali",
+          "foodPrice": "403",
+          "foodrating":"5"
+        }
+      ]
+    },
+    {
+      "cuisineId": "5",
+      "musttry": [
+        {
+          "foodId": 1,
+          "foodName": "Dog Fry",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "501",
+          "foodrating":"3"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Monkey Fry",
+          "foodImageId": "thali",
+          "foodPrice": "502",
+          "foodrating":"4"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Anaconda Fry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "503",
+          "foodrating":"5"
+        }
+      ]
+    }
+  ],
+
+  "menu": [
+    {
+      "cuisineId": "1",
+      "foodMenu": [
+        {
+          "foodId": 1,
+          "foodName": "Thali",
+          "foodImageId": "thali",
+          "foodPrice": "101"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Kadali Paneer",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "102"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Chole Bhature",
+          "foodImageId": "cholebhature",
+          "foodPrice": "103"
+        },
+        {
+          "foodId": 4,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        },
+        {
+          "foodId": 5,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        }
+      ]
+    },
+
+
+    {
+      "cuisineId": "2",
+      "foodMenu": [
+        {
+          "foodId": 1,
+          "foodName": "BhindiFry",
+          "foodImageId": "thali",
+          "foodPrice": "201"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Chicken",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "202"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Korma",
+          "foodImageId": "cholebhature",
+          "foodPrice": "203"
+        },
+        {
+          "foodId": 4,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        },
+        {
+          "foodId": 5,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        }
+      ]
+    },
+
+
+    {
+      "cuisineId": "3",
+      "foodMenu": [
+        {
+          "foodId": 1,
+          "foodName": "French fries",
+          "foodImageId": "thali",
+          "foodPrice": "301"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Mashroom",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "302"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Roti",
+          "foodImageId": "cholebhature",
+          "foodPrice": "303"
+        },
+        {
+          "foodId": 4,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        },
+        {
+          "foodId": 5,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        }
+      ]
+    },
+
+
+    {
+      "cuisineId": "4",
+      "foodMenu": [
+        {
+          "foodId": 1,
+          "foodName": "Pani Puri",
+          "foodImageId": "cholebhature",
+          "foodPrice": "401"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Chaat",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "402"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Momo",
+          "foodImageId": "thali",
+          "foodPrice": "403"
+        },
+        {
+          "foodId": 4,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        },
+        {
+          "foodId": 5,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "300"
+        }
+      ]
+    },
+
+
+    {
+      "cuisineId": "5",
+      "foodMenu": [
+        {
+          "foodId": 1,
+          "foodName": "Dog Fry",
+          "foodImageId": "kadaipaneer",
+          "foodPrice": "501"
+        },
+        {
+          "foodId": 2,
+          "foodName": "Monkey Fry",
+          "foodImageId": "thali",
+          "foodPrice": "502"
+        },
+        {
+          "foodId": 3,
+          "foodName": "Anaconda Fry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "503"
+        },
+        {
+          "foodId": 4,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "100"
+        },
+        {
+          "foodId": 5,
+          "foodName": "BhindiFry",
+          "foodImageId": "cholebhature",
+          "foodPrice": "100"
+        }
+      ]
+    }
+  ]
+}

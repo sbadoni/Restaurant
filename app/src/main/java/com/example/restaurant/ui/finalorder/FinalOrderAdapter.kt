@@ -1,6 +1,5 @@
 package com.example.restaurant.ui.finalorder
 
-import android.content.Context
 import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurant.R
 import kotlinx.android.synthetic.main.item_final_order.view.*
 
-class FinalOrderAdapter(private val layoutInflater: LayoutInflater) : ListAdapter<FoodItemWithPrice, RecyclerView.ViewHolder>(FinalOrderDiffCallback()) {
+class FinalOrderAdapter(
+    private val layoutInflater: LayoutInflater,
+    private val resources: Resources
+) : ListAdapter<FoodItemWithPrice, RecyclerView.ViewHolder>(FinalOrderDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         FinalOrderViewHolder(
-            layoutInflater.inflate(FinalOrderViewHolder.LAYOUT, parent, false)
+            layoutInflater.inflate(FinalOrderViewHolder.LAYOUT, parent, false), resources
         )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
@@ -24,7 +26,10 @@ class FinalOrderAdapter(private val layoutInflater: LayoutInflater) : ListAdapte
     override fun getItemId(position: Int): Long = getItem(position).foodId.toLong()
 
 }
-class FinalOrderViewHolder(private val view: View
+
+class FinalOrderViewHolder(
+    private val view: View,
+    private val resources: Resources
 ) : RecyclerView.ViewHolder(view) {
 
     companion object {
@@ -32,11 +37,13 @@ class FinalOrderViewHolder(private val view: View
     }
 
     private val itemFoodNameName by lazy { view.finalFoodName }
+    private val itemFoodMultiply by lazy { view.finalFoodMultiply }
     private val itemFoodNamePrice by lazy { view.finalFoodPrice }
     fun render(foodItemWithPrice: FoodItemWithPrice) {
         with(foodItemWithPrice) {
+            itemFoodMultiply.text = String.format(resources.getString(R.string.multiply), quantity)
             itemFoodNameName.text = foodName
-            itemFoodNamePrice.text = foodPrice.toString()
+            itemFoodNamePrice.text = (foodPrice * quantity).toString()
         }
     }
 }

@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurant.source.DataSource
 import com.example.restaurant.source.DataSourceImpl
-import com.example.restaurant.ui.*
+import com.example.restaurant.ui.CuisineAdapter
+import com.example.restaurant.ui.MainViewModel
+import com.example.restaurant.ui.MustTryAdapter
+import com.example.restaurant.ui.OnCuisineClicked
 import com.example.restaurant.ui.finalorder.FinalOrderAdapter
 import com.example.restaurant.ui.finalorder.FinalOrderViewModel
 import com.example.restaurant.ui.mainmenu.MenuAdapter
@@ -67,7 +70,7 @@ val RestaurantModule = module {
 
     factory {
         val layoutInflater: LayoutInflater = it[0]
-        FinalOrderAdapter(layoutInflater)
+        FinalOrderAdapter(layoutInflater, get())
     }
 
     //util

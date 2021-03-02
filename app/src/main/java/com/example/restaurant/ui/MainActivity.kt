@@ -113,10 +113,6 @@ class MainActivity : AppCompatActivity() {
                 mustTryAdapter.submitList(it)
             }
         })
-
-
-        //val cuisineViewHolder: CuisineViewHolder = recyclerView.findViewHolderForAdapterPosition(0) as CuisineViewHolder
-        //mainViewModel.fetchMustTry(cuisineViewHolder.cuisineId)
     }
 
     private fun initCart(){

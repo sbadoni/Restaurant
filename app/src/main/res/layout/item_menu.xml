@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="11dp"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
         android:id="@+id/menuItem_FoodImage"
@@ -24,7 +25,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menuItem_FoodImage"
-        android:text= "Bhindi Fry"/>
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        tools:text="Bhindi Fry" />
 
     <TextView
         android:id="@+id/menuItem_FoodPrice"
@@ -37,16 +40,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="15sp"
-        android:text= "@string/rupee"/>
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        tools:text="@string/rupee" />
 
     <com.example.restaurant.util.ItemCounter
         android:id="@+id/menuItem_FoodCounter"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="22dp"
-        app:layout_constraintStart_toEndOf="@id/menuItem_FoodPrice"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/menuItem_FoodPrice"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

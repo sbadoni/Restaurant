@@ -5,16 +5,15 @@ import com.example.restaurant.data.ItemInCart
 import com.example.restaurant.data.Response
 import com.example.restaurant.data.RestaurantWithCart
 import com.google.gson.Gson
-import io.reactivex.Completable
 import io.reactivex.Flowable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.processors.BehaviorProcessor
-import io.reactivex.schedulers.Schedulers
 import java.io.InputStream
 import java.io.InputStreamReader
 
-class DataSourceImpl(private val gSon: Gson,
-                     private val context: Application): DataSource {
+class DataSourceImpl(
+    private val gSon: Gson,
+    private val context: Application
+) : DataSource {
 
     private val itemInCartPublisher = BehaviorProcessor.createDefault(RestaurantWithCart.EMPTY)
     private val itemInCart = itemInCartPublisher.serialize()
@@ -24,7 +23,7 @@ class DataSourceImpl(private val gSon: Gson,
         val reader = InputStreamReader(inputStream)
         val res = gSon.fromJson(reader, Response::class.java)
         println("res = $res")
-        return  Flowable.just(res)
+        return Flowable.just(res)
     }
 
     override fun getResponseFromCloud(): Flowable<Response> {
@@ -41,49 +40,52 @@ class DataSourceImpl(private val gSon: Gson,
         foodName: String,
         foodPrice: Int,
         quantity: Int
-    )
-        {
-            itemInCartPublisher.value?.let {
-                    val find = it.cartItems.find { itemInCart -> itemInCart.foodId == foodId }
-                //println("itemInCartPublisher find ${find}")
-                    find?.let {
-                      //  println("itemInCartPublisher find ${find} 111")
-                        it.quantity++
-                    }?: kotlin.run {
-                    //    println("itemInCartPublisher find ${find} 222")
-                        it.cuisineId = cuisineId
-                        it.cartItems.add(ItemInCart(cuisineId, foodId, foodName, foodPrice, quantity) )
-                    }
-
+    ) {
+        itemInCartPublisher.value?.let {
+            val find = it.cartItems.find { itemInCart -> itemInCart.foodId == foodId }
+            //println("itemInCartPublisher find ${find}")
+            find?.let {
+                //  println("itemInCartPublisher find ${find} 111")
+                it.quantity++
+            } ?: kotlin.run {
+                //    println("itemInCartPublisher find ${find} 222")
+                it.cuisineId = cuisineId
+                it.cartItems.add(ItemInCart(cuisineId, foodId, foodName, foodPrice, quantity))
             }
-            println("addIntoTheCart ${itemInCartPublisher.value!!}")
-            itemInCartPublisher.onNext(itemInCartPublisher.value!!)
+
         }
+        //println("addIntoTheCart ${itemInCartPublisher.value!!}")
+        itemInCartPublisher.onNext(itemInCartPublisher.value!!)
+    }
 
 
     override fun removeFromCart(cuisineId: Int, foodId: Int) {
-            itemInCartPublisher.value?.let {
-                val find = it.cartItems.find { it.foodId == foodId }
-                find?.let {
-                    it.quantity--
-                }
-                val isAnyAvailable = it.cartItems.any { it.quantity > 0 }
-                if(isAnyAvailable.not()){
-                    println("All items are zero clear the cart")
-                    clearCart()
-                    return@removeFromCart
-                }
+        itemInCartPublisher.value?.let {
+            val find = it.cartItems.find { it.foodId == foodId }
+            find?.let {
+                it.quantity--
             }
-            itemInCartPublisher.onNext(itemInCartPublisher.value!!)
+            val isAnyAvailable = it.cartItems.any { it.quantity > 0 }
+            if (isAnyAvailable.not()) {
+                // println("All items are zero clear the cart")
+                clearCart()
+                return@removeFromCart
+            }
+            val itemWithZeoCount = it.cartItems.firstOrNull { it.quantity == 0 } ?: ItemInCart.EMPTY
+            val itemToRemove = it.cartItems.firstOrNull { it.foodId == itemWithZeoCount.foodId }
+                ?: ItemInCart.EMPTY
+            it.cartItems.remove(itemToRemove)
         }
+        itemInCartPublisher.onNext(itemInCartPublisher.value!!)
+    }
 
     override fun clearCart() {
         itemInCartPublisher.value?.let {
             it.cuisineId = RestaurantWithCart.EMPTY.cuisineId
             it.cartItems.clear()
-            println("clearCart 1 ${itemInCartPublisher.value!!}")
+            // println("clearCart 1 ${itemInCartPublisher.value!!}")
         }
-        println("clearCart ${itemInCartPublisher.value!!}")
+        //println("clearCart ${itemInCartPublisher.value!!}")
         itemInCartPublisher.onNext(itemInCartPublisher.value!!)
     }
 

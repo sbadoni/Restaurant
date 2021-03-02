@@ -1,17 +1,20 @@
 package com.example.restaurant.ui.mainmenu
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.example.restaurant.R
+import com.example.restaurant.ui.finalorder.FinalOrderActivity
 import com.example.restaurant.util.UpdateFoodCounter
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.item_cuisine.view.*
@@ -52,6 +55,11 @@ class MenuActivity : AppCompatActivity() {
         val itemCart = menu.findItem(R.id.action_cart)
         val actionView: View = itemCart.actionView
         textCartItemCount = actionView.findViewById(R.id.cart_badge)
+        actionView.findViewById<ImageView>(R.id.cart_icon)
+            .setOnClickListener {
+                if (textCartItemCount.visibility == View.VISIBLE)
+                    startActivity(Intent(this@MenuActivity, FinalOrderActivity::class.java))
+            }
         initCart()
         return true
     }

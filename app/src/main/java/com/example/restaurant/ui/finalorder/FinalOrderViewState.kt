@@ -6,4 +6,9 @@ class FinalOrderViewState(val listOfFoodWithPrice: MutableList<FoodItemWithPrice
     }
 }
 
-data class FoodItemWithPrice(val foodId: Int, val foodName: String, val foodPrice: Int)
+data class FoodItemWithPrice(
+    val foodId: Int,
+    val foodName: String,
+    val foodPrice: Int,
+    val quantity: Int
+)

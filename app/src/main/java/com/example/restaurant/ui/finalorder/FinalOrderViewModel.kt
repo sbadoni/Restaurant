@@ -23,7 +23,7 @@ class FinalOrderViewModel(private val queryCart: QueryCart): ViewModel() {
         initialViewState.listOfFoodWithPrice.clear()
         initialViewState.listOfFoodWithPrice.apply {
             restaurantWithCart.cartItems.forEach {
-                add(FoodItemWithPrice(it.foodId, it.foodName, it.foodPrice))
+                add(FoodItemWithPrice(it.foodId, it.foodName, it.foodPrice, it.quantity))
             }
         }
         cartLiveData.postValue(initialViewState.listOfFoodWithPrice)

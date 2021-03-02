@@ -44,7 +44,7 @@ class MenuViewHolder(private val view : View,
             itemFoodName.text = foodName
             val resourceId: Int = resources.getIdentifier(foodImageId,"drawable", context.packageName)
             itemFoodImage.setImageResource(resourceId)
-            itemFoodPrice.text = foodPrice.toString()
+            itemFoodPrice.text = String.format(resources.getString(R.string.rupee), foodPrice)
             itemFoodCounter.getItemCount().text = cartCount.toString()
             itemFoodCounter.getItemDecrease().setOnClickListener {
                 val count = itemFoodCounter.getItemCount().text.toString().toInt()

@@ -1,7 +1,7 @@
 package com.example.restaurant.ui.finalorder
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -45,13 +45,14 @@ class FinalOrderActivity : AppCompatActivity() {
             }
         })
     }
+
     //TODO THIS MIGHT BE PART OF VIEW-MODEL
-    private fun calculateFinalBill(listOf: List<FoodItemWithPrice>){
-        val total = listOf.sumBy { it.foodPrice }
+    private fun calculateFinalBill(listOf: List<FoodItemWithPrice>) {
+        val total = listOf.sumBy { it.foodPrice * it.quantity }.toFloat()
         finalPrice.text = total.toString()
-        val gst = total *2.5/100
+        val gst = total * 2.5 / 100
         finalPricecgst.text = gst.toString()
         finalPricesgst.text = gst.toString()
-        grandTotal.text = (total + gst*2).toString()
+        grandTotal.text = (total + gst * 2).toString()
     }
 }

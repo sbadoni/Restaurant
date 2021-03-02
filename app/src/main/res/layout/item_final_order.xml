@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_weight="3"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
+        android:layout_weight="1.2"
         android:id="@+id/finalFoodName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textStyle="bold"
         android:textSize="25sp"
-        tools:text="Veg" />
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        tools:text="Vegdadadad" />
 
     <TextView
-        android:id="@+id/finalFoodPrice"
-        android:layout_width="wrap_content"
+        android:layout_weight=".6"
+        android:id="@+id/finalFoodMultiply"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/finalFoodName"
-        android:textStyle="bold"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Veg" />
+        android:singleLine="true"
+        tools:text="* 12" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_marginEnd="11dp"
+        android:layout_weight="1.2"
+        android:id="@+id/finalFoodPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:gravity="end"
+        tools:text="1000" />
+
+</LinearLayout>

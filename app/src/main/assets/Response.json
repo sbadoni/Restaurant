@@ -138,24 +138,24 @@
       "musttry": [
         {
           "foodId": 1,
-          "foodName": "Dog Fry",
+          "foodName": "Mushroom Fry",
           "foodImageId": "kadaipaneer",
           "foodPrice": "501",
-          "foodrating":"3"
+          "foodrating": "3"
         },
         {
           "foodId": 2,
-          "foodName": "Monkey Fry",
+          "foodName": "Aalu Fry",
           "foodImageId": "thali",
           "foodPrice": "502",
-          "foodrating":"4"
+          "foodrating": "4"
         },
         {
           "foodId": 3,
-          "foodName": "Anaconda Fry",
+          "foodName": "Tanduri Fry",
           "foodImageId": "cholebhature",
           "foodPrice": "503",
-          "foodrating":"5"
+          "foodrating": "5"
         }
       ]
     }
@@ -315,19 +315,19 @@
       "foodMenu": [
         {
           "foodId": 1,
-          "foodName": "Dog Fry",
+          "foodName": "Mushroom Fry",
           "foodImageId": "kadaipaneer",
           "foodPrice": "501"
         },
         {
           "foodId": 2,
-          "foodName": "Monkey Fry",
+          "foodName": "Aalu Fry",
           "foodImageId": "thali",
           "foodPrice": "502"
         },
         {
           "foodId": 3,
-          "foodName": "Anaconda Fry",
+          "foodName": "Tanduri Fry",
           "foodImageId": "cholebhature",
           "foodPrice": "503"
         },

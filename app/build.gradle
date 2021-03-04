@@ -54,7 +54,7 @@ dependencies {
     implementation deps.room.rxjava2
     implementation deps.picasso
     implementation deps.lifecycle.viewmodel_ktx
-
+    implementation "androidx.preference:preference-ktx:1.1.1"
     implementation deps.cardview
 
 }

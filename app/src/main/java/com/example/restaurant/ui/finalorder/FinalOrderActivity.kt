@@ -1,5 +1,7 @@
 package com.example.restaurant.ui.finalorder
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -8,11 +10,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.example.restaurant.R
+import com.example.restaurant.util.ContextUtils
 import kotlinx.android.synthetic.main.activity_final_order.*
 import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.util.*
 
 class FinalOrderActivity : AppCompatActivity() {
     private val finalOrderViewModel: FinalOrderViewModel by viewModel()
@@ -27,9 +31,12 @@ class FinalOrderActivity : AppCompatActivity() {
 
     private fun initRecyclerView(){
         recyclerView_finalOrder.run {
-            val linearLayoutManager = get<LinearLayoutManager>(parameters = { parametersOf(context!!) })
-            val dividerItemDecoration = DividerItemDecoration(context, linearLayoutManager.orientation)
-            context?.let { ContextCompat.getDrawable(it, R.drawable.horizontal_divider) }?.let(dividerItemDecoration::setDrawable)
+            val linearLayoutManager =
+                get<LinearLayoutManager>(parameters = { parametersOf(context!!) })
+            val dividerItemDecoration =
+                DividerItemDecoration(context, linearLayoutManager.orientation)
+            context?.let { ContextCompat.getDrawable(it, R.drawable.horizontal_divider) }
+                ?.let(dividerItemDecoration::setDrawable)
             addItemDecoration(dividerItemDecoration)
             (itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
             layoutManager = linearLayoutManager
@@ -37,8 +44,17 @@ class FinalOrderActivity : AppCompatActivity() {
         }
     }
 
+    override fun attachBaseContext(base: Context) {
+        println("attachBaseContext ${ContextUtils.getSavedLanguage(base)}")
+        val savedLang = ContextUtils.getSavedLanguage(base)
+        val config = Configuration()
+        config.setLocale(Locale(savedLang))
+        applyOverrideConfiguration(config)
+        super.attachBaseContext(ContextUtils.onAttach(base))
+    }
+
     private fun initData() {
-        finalOrderViewModel.observerCartData() .observe(this, Observer { items ->
+        finalOrderViewModel.observerCartData().observe(this, Observer { items ->
             items.let {
                 finalOrderAdapter.submitList(it)
                 calculateFinalBill(it)

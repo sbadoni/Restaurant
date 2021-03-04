@@ -54,7 +54,6 @@ class DataSourceImpl(
             }
 
         }
-        //println("addIntoTheCart ${itemInCartPublisher.value!!}")
         itemInCartPublisher.onNext(itemInCartPublisher.value!!)
     }
 

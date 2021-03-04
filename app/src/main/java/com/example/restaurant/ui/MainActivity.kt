@@ -1,6 +1,8 @@
 package com.example.restaurant.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -23,6 +25,7 @@ import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private val cuisineAdapter: CuisineAdapter by inject(parameters = { parametersOf(layoutInflater, applicationContext, onCuisineClicked) })
     private val mustTryAdapter: MustTryAdapter by inject(parameters = { parametersOf(layoutInflater, applicationContext, updateFoodCounter) })
     private lateinit var textCartItemCount: TextView
+    private lateinit var currentLanguage: String
 
     private val snapHelper = PagerSnapHelper()
     private val snapChangeListener = object : OnSnapPositionChangeListener{
@@ -54,12 +58,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val onCuisineClicked = object: OnCuisineClicked{
+    private val onCuisineClicked = object : OnCuisineClicked {
         override fun onClick(cuisineId: Int) {
-           startActivity(Intent(this@MainActivity, MenuActivity::class.java).apply {
-               putExtra("cuisineId", cuisineId)
-           })
+            startActivity(Intent(this@MainActivity, MenuActivity::class.java).apply {
+                putExtra("cuisineId", cuisineId)
+            })
         }
+    }
+
+    override fun attachBaseContext(base: Context) {
+        println("attachBaseContext ${ContextUtils.getSavedLanguage(base)}")
+        currentLanguage = ContextUtils.getSavedLanguage(base)
+        val config = Configuration()
+        config.setLocale(Locale(currentLanguage))
+        applyOverrideConfiguration(config)
+        super.attachBaseContext(ContextUtils.onAttach(base))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initRecyclerView()
         initData()
+        setLanguageListener()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -143,6 +157,23 @@ class MainActivity : AppCompatActivity() {
                     textCartItemCount.visibility = View.VISIBLE
                 }
             }
+        }
+    }
+
+    private fun setLanguageListener() {
+        languageHindi.setOnClickListener {
+            if (currentLanguage.contains("hi"))
+                return@setOnClickListener
+            ContextUtils.setLocale(this, "hi")
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+        languageEnglish.setOnClickListener {
+            if (currentLanguage.contains("en"))
+                return@setOnClickListener
+            ContextUtils.setLocale(this, "en")
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 }

@@ -9,6 +9,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/button_bg_red"
+        android:textStyle="bold"
+        android:textSize="22sp"
         android:text="-" />
 
     <TextView
@@ -26,6 +28,8 @@
         android:id="@+id/item_increase"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:textStyle="bold"
+        android:textSize="22sp"
         android:background="@drawable/button_bg_round"
         android:text="+" />
 

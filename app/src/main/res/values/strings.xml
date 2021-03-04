@@ -3,4 +3,10 @@
     <string name="app_recommended">RECOMMENDED</string>
     <string name="rupee">\u20B9 %s</string>
     <string name="multiply">* %s</string>
+    <string name="language">Language</string>
+    <string name="language_hindi">Hindi</string>
+    <string name="language_english">English</string>
+    <string name="net_amount">Net Amount</string>
+    <string name="grand_amount">Grand Amount</string>
+    <string name="place_order">Place Order</string>
 </resources>

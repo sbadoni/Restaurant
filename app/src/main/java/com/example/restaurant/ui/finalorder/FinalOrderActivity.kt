@@ -3,6 +3,7 @@ package com.example.restaurant.ui.finalorder
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -25,6 +26,9 @@ class FinalOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_final_order)
+        placeYourOrder.setOnClickListener {
+            Toast.makeText(this, R.string.place_order_toast, Toast.LENGTH_LONG).show()
+        }
         initRecyclerView()
         initData()
     }

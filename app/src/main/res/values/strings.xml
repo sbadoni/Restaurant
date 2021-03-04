@@ -9,4 +9,5 @@
     <string name="net_amount">Net Amount</string>
     <string name="grand_amount">Grand Amount</string>
     <string name="place_order">Place Order</string>
+    <string name="place_order_toast">Thank you for your order</string>
 </resources>

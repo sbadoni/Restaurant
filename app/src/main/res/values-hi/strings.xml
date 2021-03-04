@@ -9,4 +9,6 @@
     <string name="net_amount">शुद्ध राशि</string>
     <string name="grand_amount">ग्रैंड राशि</string>
     <string name="place_order">आदेश देना</string>
+    <string name="place_order_toast">आपके क्रय आदेश के लिए धन्यवाद</string>
+
 </resources>

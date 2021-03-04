@@ -33,16 +33,16 @@ class ContextUtils(base: Context) : ContextWrapper(base) {
             // for devices having lower version of android os
         }
 
-        private fun persist(
-            context: Context,
-            language: String
-        ) {
-            val preferences: SharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(context)
-            val editor = preferences.edit()
-            editor.putString(SELECTED_LANGUAGE, language)
-            editor.apply()
-        }
+         fun persist(
+             context: Context,
+             language: String
+         ) {
+             val preferences: SharedPreferences =
+                 PreferenceManager.getDefaultSharedPreferences(context)
+             val editor = preferences.edit()
+             editor.putString(SELECTED_LANGUAGE, language)
+             editor.apply()
+         }
 
         fun getSavedLanguage(context: Context): String =
             PreferenceManager.getDefaultSharedPreferences(context)

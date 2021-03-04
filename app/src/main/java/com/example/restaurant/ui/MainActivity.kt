@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
     private val snapHelper = PagerSnapHelper()
     private val snapChangeListener = object : OnSnapPositionChangeListener{
         override fun onSnapPositionChange(position: Int) {
-           val cuisineViewHolder: CuisineViewHolder = recyclerView.findViewHolderForAdapterPosition(position) as CuisineViewHolder
+            val cuisineViewHolder: CuisineViewHolder =
+                recyclerView.findViewHolderForAdapterPosition(position) as CuisineViewHolder
             println("onSnapPositionChange position = $position  cuisineId = ${cuisineViewHolder.cuisineId}")
             mainViewModel.getMustTry(cuisineViewHolder.cuisineId)
             mainViewModel.getCartCount()
@@ -162,16 +163,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun setLanguageListener() {
         languageHindi.setOnClickListener {
+            println("setLanguageListener languageHindi $currentLanguage")
             if (currentLanguage.contains("hi"))
                 return@setOnClickListener
-            ContextUtils.setLocale(this, "hi")
+            currentLanguage = "hi"
+            ContextUtils.persist(this, "hi")
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
         languageEnglish.setOnClickListener {
+            println("setLanguageListener languageEnglish $currentLanguage")
             if (currentLanguage.contains("en"))
                 return@setOnClickListener
-            ContextUtils.setLocale(this, "en")
+            currentLanguage = "en"
+            ContextUtils.persist(this, "en")
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">खाने की दुकान</string>
+    <string name="app_recommended">सिफारिश की</string>
+    <string name="rupee">\u20B9 %s</string>
+    <string name="multiply">* %s</string>
+    <string name="language">भाषा</string>
+    <string name="language_hindi">हिन्दी</string>
+    <string name="language_english">अंग्रेज़ी</string>
+    <string name="net_amount">शुद्ध राशि</string>
+    <string name="grand_amount">ग्रैंड राशि</string>
+    <string name="place_order">आदेश देना</string>
+</resources>
